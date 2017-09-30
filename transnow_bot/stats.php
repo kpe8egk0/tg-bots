@@ -10,8 +10,8 @@ echo 'Последние '. $n . ' запросов: <br/>' . getLookupLastN($n)
 
 function db()
 {
-    define('DB_HOST', getenv('[service_name]_SERVICE_HOST'));
-    define('DB_PORT', getenv('[service_name]_SERVICE_PORT'));
+    define('DB_HOST', getenv('MYSQL_SERVICE_HOST'));
+    define('DB_PORT', getenv('MYSQL_SERVICE_PORT'));
     define('DB_USER', getenv('MYSQL_USER'));
     define('DB_PASS', getenv('MYSQL_PASSWORD'));
     define('DB_NAME', 'transnow');
