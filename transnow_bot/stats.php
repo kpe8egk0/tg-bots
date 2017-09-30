@@ -10,11 +10,11 @@ echo 'Последние '. $n . ' запросов: <br/>' . getLookupLastN($n)
 
 function db()
 {
-    define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
-    define('DB_PORT', getenv('OPENSHIFT_MYSQL_DB_PORT'));
-    define('DB_USER', getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-    define('DB_PASS', getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-    define('DB_NAME', getenv('OPENSHIFT_GEAR_NAME'));
+    define('DB_HOST', getenv('[service_name]_SERVICE_HOST'));
+    define('DB_PORT', getenv('[service_name]_SERVICE_PORT'));
+    define('DB_USER', getenv('MYSQL_USER'));
+    define('DB_PASS', getenv('MYSQL_PASSWORD'));
+    define('DB_NAME', 'transnow');
     $dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';port=' . DB_PORT . ';charset=utf8';
     $dbh = new PDO($dsn, DB_USER, DB_PASS);
     return $dbh;
