@@ -134,8 +134,8 @@ function db()
 {
     define('DB_HOST', getenv('MYSQL_SERVICE_HOST'));
     define('DB_PORT', getenv('MYSQL_SERVICE_PORT'));
-    define('DB_USER', getenv('MYSQL_USER'));
-    define('DB_PASS', getenv('MYSQL_PASSWORD'));
+    define('DB_USER', 'admin7u16aWd');
+    define('DB_PASS', 'N-qmKzPd6Ewh');
     define('DB_NAME', 'transnow');
     $dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';port=' . DB_PORT . ';charset=utf8';
     $dbh = new PDO($dsn, DB_USER, DB_PASS);
