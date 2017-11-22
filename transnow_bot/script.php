@@ -1,6 +1,6 @@
 <?php
 
-//https://api.telegram.org/bot261062241:AAHYU1rMeyMW4I0z6bxrwP3HpeaJKLVNXxs/setWebhook?url=https://transnow-ironyman.rhcloud.com/transnow_bot/script.php
+//https://api.telegram.org/bot261062241:AAHYU1rMeyMW4I0z6bxrwP3HpeaJKLVNXxs/setWebhook?url=https://tg-bots-tg.1d35.starter-us-east-1.openshiftapps.com/transnow_bot/script.php
 //dogyyy = 186410705
 // Доступ к боту
 $bot_access_token = '261062241:AAHYU1rMeyMW4I0z6bxrwP3HpeaJKLVNXxs';
@@ -27,6 +27,7 @@ else
     $full_name = $input['message']['from']['first_name'];
 }
 
+/*###
 if ($chat_id == getManualChatID()['value']) {
     sendMessage($chat_id, 'Ok!');
     exit();
@@ -41,7 +42,7 @@ if (!isset($user['user'])) {
 // Проверка актуальности chat_id пользователя.
 if ($user['chat_id'] != $chat_id) {
     updateUsersChatID($username, $chat_id);
-}
+}*/
 
 $message = strtolower($message);
 switch ($message) {
@@ -94,7 +95,7 @@ switch ($inputLangCode) {
        // sendMessage('186410705', $serv_msg);
        // sendMessage('120380354', $serv_msg);
         $outputLangCode = 'error';
-        addLookup($username, $input['message']['text'], $outputLangCode, $chat_id);
+        //###addLookup($username, $input['message']['text'], $outputLangCode, $chat_id);
         if (!empty($inputLangCode))
         {
             sendMessage($chat_id, 'Unsupported language ' . strtoupper($inputLangCode) . '! Please use English or Russian. Неподдерживаемый язык ' . strtoupper($inputLangCode) . '! Пожалуйста, используй Английский, или Русский.');
@@ -122,10 +123,10 @@ if (empty($trcheck))
     }
 }
 if (!empty($trcheck)) {
-    addArticle($message, $output_json, $outputLangCode);
+    //###addArticle($message, $output_json, $outputLangCode);
     $output_text = sendDetailedOutput($output_json, $inputLangCode);
 }
-addLookup($username, $input['message']['text'], $outputLangCode, $chat_id);
+//###addLookup($username, $input['message']['text'], $outputLangCode, $chat_id);
 sendMessage($chat_id, $output_text);
 
 // Функции
